@@ -5,14 +5,11 @@
     <vendor email="joclaussen@gmail.com">Ohle Claussen</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.python</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.ohle.jythonsupport.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.ohle.jythonsupport.services.MyProjectService"/>
+        <psi.referenceContributor language="Python"
+                                  implementation="de.eudaemon.jython_support.PythonReferenceContributor"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.ohle.jythonsupport.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>
